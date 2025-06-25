@@ -1,5 +1,5 @@
 export interface FavoriteMusicModel {
-  id: string;
+  id?: string;
   user_id: string;
   video_id: string;
   video_title: string;

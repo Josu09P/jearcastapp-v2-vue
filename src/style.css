@@ -12,6 +12,7 @@
   --button-hover-bg: rgba(0, 0, 0, 0.15);
   --text-color: #ffffff;
   --text-secondary: #c2c2c2;
+  --main-bg-color: #102c4a;
 }
 
 /* ======================================
@@ -70,10 +71,10 @@
             TARJETAS DE VIDEO 
 ====================================== */
 .video-card-custom {
-  background-color: var(--primary-bg);
+  background-color: var(--primary-bg) !important;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  color: var(--text-color);
+  color: var(--text-color) !important;
   transition: all 0.3s ease;
 }
 
@@ -190,7 +191,10 @@
 /* ======================================
          SLIDER DE PROGRESO 
 ====================================== */
-#progress-bar {
+#progress-bar-home,
+#progress-bar-playlist,
+#progress-bar-recommended,
+#progress-bar-favorites {
   width: 100%;
   max-width: 300px;
   height: 6px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="theme-selector-container card text-white p-4 rounded">
+  <div class="theme-selector-container text-white p-4 rounded">
     <h5 class="mb-3">🎨 Personaliza el color JearCastApp</h5>
     <div class="d-flex flex-wrap gap-3">
       <!-- Colores predeterminados -->

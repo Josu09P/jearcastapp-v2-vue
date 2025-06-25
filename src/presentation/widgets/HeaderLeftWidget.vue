@@ -11,7 +11,7 @@
     >
       <span class="fs-5 fw-bold" style="margin-left: -20px">Steel Music</span>
     </a>
-    <ul class="nav nav-pills flex-column w-100 mb-5">
+    <ul class="nav nav-pills flex-column w-100 mb-5" style="margin-top: -15px;">
       <li class="nav-item">
         <a href="#home" class="nav-link nav-section">
           <i class="bi bi-house-door me-2"></i> Inicio

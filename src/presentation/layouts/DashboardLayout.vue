@@ -22,8 +22,12 @@ import FooterDashboardWidget from '@/presentation/widgets/FooterDashboardWidget.
 </script>
 
 <style>
+.container-all,
+.row.g-0 {
+  min-height: 100vh;
+}
+
 .container-all {
-  --main-bg-color: #102c4a;
   background-color: var(--main-bg-color);
   background-image: url("@/assets/img/bg-hero.png");
   background-repeat: no-repeat;

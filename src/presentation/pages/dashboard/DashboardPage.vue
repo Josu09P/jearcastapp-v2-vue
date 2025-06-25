@@ -1,7 +1,7 @@
 <template>
   <DashboardLayout>
     <section id="home" v-show="activeSection === 'home'">
-
+      <HomeView />
     </section>
     <section id="favorites" v-show="activeSection === 'favorites'">
       <FavoritesView />
@@ -23,6 +23,7 @@ import { ref, onMounted } from 'vue'
 import DashboardLayout from '@/presentation/layouts/DashboardLayout.vue'
 import ThemesView from '@/presentation/widgets/views/ThemesView.vue'
 import FavoritesView from '@/presentation/widgets/views/FavoritesView.vue'
+import HomeView from '@/presentation/widgets/views/HomeView.vue'
 
 const activeSection = ref('home')
 

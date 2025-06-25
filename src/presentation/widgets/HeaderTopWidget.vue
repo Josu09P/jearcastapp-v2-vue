@@ -1,49 +1,16 @@
 <template>
   <nav class="navbar navbar-expand-lg sticky-top border-bottom" id="navbar-top-color" style="padding: 0 20px;">
-  <div class="container-fluid d-flex flex-wrap justify-content-between align-items-center">
+    <div class="container-fluid d-flex flex-wrap justify-content-between align-items-center">
       <!-- Logo -->
-      <span class="navbar-brand fw-semibold me-3">
-        <img
-          :src="logo"
-          width="90"
-          alt="Logo"
-          style="filter: brightness(0) invert(1);"
-        />
-      </span>
-
-      <!-- Botón toggle sidebar -->
-      <button
-        class="btn d-flex align-items-center justify-content-center"
-        id="toggle-sidebar-btn"
-        title="Ocultar menú"
-        style="background-color: aliceblue; margin-left: 20px; width: 30px; height: 30px;"
-        @click="toggleSidebar"
-      >
-        <i class="bi bi-speaker fs-4" style="color: black;"></i>
-      </button>
-
-      <!-- Barra de búsqueda -->
-      <form
-        class="d-flex mx-auto flex-grow-1 justify-content-center order-3 order-lg-2 mt-2 mt-lg-0"
-        role="search"
-        style="max-width: 350px;"
-        @submit.prevent="handleSearch"
-      >
-        <input
-          v-model="searchQuery"
-          class="form-control form-control-sm w-75 rounded-start-pill px-3"
-          type="search"
-          placeholder="Buscar..."
-          aria-label="Buscar"
-        />
-        <button
-          class="btn btn-outline-light btn-sm rounded-end-pill px-3"
-          type="submit"
-          style="color: white; border-color: white;"
-        >
-          <i class="bi bi-search" style="color: white;"></i>
+      <div class="d-flex align-items-center me-3">
+        <img :src="logo" width="90" alt="Logo" style="filter: brightness(0) invert(1); margin: 10px 60px 10px 10px;" class="me-4" />
+        <button class="btn d-flex align-items-center justify-content-center" id="toggle-sidebar-btn"
+          title="Ocultar menú" style="background-color: aliceblue; width: 30px; height: 30px;" @click="toggleSidebar">
+          <i class="bi bi-speaker fs-4" style="color: black;"></i>
         </button>
-      </form>
+      </div>
+
+
 
       <!-- Usuario y logout -->
       <div class="d-flex align-items-center order-2 order-lg-3 mt-2 mt-lg-0">
@@ -59,13 +26,11 @@
 </template>
 <script setup lang="ts">
 import Swal from 'sweetalert2'
-import { ref, computed, onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user' // ✅ Importar store
-
 const router = useRouter()
 const logo = new URL('@/assets/img/logo-v3.png', import.meta.url).href
-const searchQuery = ref('')
 const userStore = useUserStore()
 
 onMounted(() => {
@@ -131,13 +96,6 @@ const logout = async () => {
     router.push('/auth/login').then(() => {
       window.location.reload()
     })
-  }
-}
-
-const handleSearch = () => {
-  if (searchQuery.value.trim()) {
-    console.log('Buscando:', searchQuery.value)
-    // Puedes hacer router.push({ name: 'search', query: { q: searchQuery.value } })
   }
 }
 </script>
