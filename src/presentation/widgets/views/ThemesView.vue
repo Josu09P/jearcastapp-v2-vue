@@ -32,7 +32,18 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
-const presetColors = ['#102c4a', '#1d3557', '#ff6b6b', '#00b894', '#fdcb6e']
+const presetColors = [
+  '#102c4a', '#5d0909', '#123c24', '#4a0958', '#c64600', '#1a0101', '#124242', // Originales
+  '#2d0a2e', // púrpura oscuro
+  '#1b2f0d', // verde musgo profundo
+  '#0c1c33', // azul petróleo
+  '#3b1f07', // marrón oscuro cálido
+  '#470029', // vino oscuro
+  '#003c3c', // verde petróleo
+  '#2f0e0e', // rojo óxido
+  '#1c0d2f', // índigo profundo
+  '#3a3a00'  // oliva quemado
+]
 const currentColor = ref('')
 const showCheck = ref(false)
 const colorPicker = ref<HTMLInputElement | null>(null)

@@ -1,3 +1,0 @@
-<template>
-    <footer class="mt-5 text-center text-light">© 2025 JearCastApp</footer>
-</template>

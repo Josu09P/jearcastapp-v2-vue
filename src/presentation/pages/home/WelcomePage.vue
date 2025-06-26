@@ -29,7 +29,7 @@
             <p>
               Hemos preparado un documento completo con todos los pasos necesarios para obtener tu API Key, configurar tu cuenta y comenzar.
             </p>
-            <a href="@/pdf/Guia_JearCast.pdf" class="btn btn-primary" download>
+            <a href="/assets/pdf/guia_app_jearcast.pdf" class="btn btn-primary" download>
               <i class="bi bi-file-earmark-arrow-down"></i> Descargar Guía (PDF)
             </a>
           </div>

@@ -2,7 +2,7 @@
   <div
     class="d-flex flex-column align-items-start px-3 pt-2 text-dark border-end position-relative"
     id="navbar-left-color"
-    style="height: 196vh"
+    style="height: 155vh"
   >
     <a
       href="#"
@@ -39,13 +39,16 @@
       </li>
       <li>
         <a href="#themes" class="nav-link nav-section">
-          <i class="bi bi-gear-wide-connected me-2"></i> Configuración
+          <i class="bi bi-palette me-2"></i> Colores
         </a>
       </li>
       <li style="display: none">
         <a href="/dashboard/demo">demo</a>
       </li>
     </ul>
+     <footer class="mt-auto text-center text-light w-100 py-2">
+      © 2025 JearCastApp
+    </footer>
   </div>
 </template>
 
@@ -77,5 +80,15 @@ li {
 li:hover {
   background-color: #c9c9c9ca;
   border-radius: 6px;
+}
+
+footer {
+  background-color: #8a8a8a50;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.351);
+  border-radius: 1.8rem;
+  font-size: 13px;
+  margin-bottom: 20px;
 }
 </style>

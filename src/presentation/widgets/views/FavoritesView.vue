@@ -16,7 +16,7 @@
     <div v-if="error" class="text-danger">{{ error }}</div>
 
     <!-- Lista de favoritos -->
-    <div v-if="favorites.length > 0" class="favorites-scroll-container mt-3 p-3 rounded">
+    <div v-if="favorites.length > 0" class="scroll-container mt-3 p-3 rounded">
       <div class="row">
         <div v-for="(fav, index) in favorites" :key="fav.id" class="col-12 col-md-6 col-lg-6 col-xl-3 mb-3">
           <div class="card h-100 flex-row shadow-sm p-2 align-items-center video-card-custom">
@@ -30,7 +30,7 @@
                 <button @click="playFavorite(index)" class="btn btn-sm">
                   <i class="bi bi-play-circle"></i>
                 </button>
-                <button @click="removeFavorite(fav.video_id)" class="btn btn-sm text-danger"
+                <button @click="removeFavorite(fav.video_id)" class="btn btn-sm text-light"
                   :disabled="deletingMap[fav.video_id]">
                   <span v-if="deletingMap[fav.video_id]" class="spinner-border spinner-border-sm" role="status"
                     aria-hidden="true"></span>
@@ -43,7 +43,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -125,7 +124,8 @@ async function removeFavorite(videoId: string) {
     duration: 1500,
     gravity: 'top',
     position: 'right',
-    backgroundColor: '#ffc107',
+    className: "toast-glass", // <- importante
+    stopOnFocus: false
   }).showToast()
 
   try {
@@ -134,10 +134,11 @@ async function removeFavorite(videoId: string) {
     setTimeout(() => {
       Toastify({
         text: 'Eliminado de favoritos',
-        duration: 3000,
-        gravity: 'top',
-        position: 'right',
-        backgroundColor: '#198754',
+         duration: 1500,
+         gravity: 'top',
+         position: 'right',
+         className: "toast-glass", // <- importante
+         stopOnFocus: false
       }).showToast()
     }, 1500)
 
@@ -145,10 +146,11 @@ async function removeFavorite(videoId: string) {
   } catch (e) {
     Toastify({
       text: 'Error al eliminar favorito',
-      duration: 3000,
+      duration: 1500,
       gravity: 'top',
       position: 'right',
-      backgroundColor: '#dc3545',
+      className: "toast-glass", // <- importante
+      stopOnFocus: false
     }).showToast()
     console.error('Error al eliminar favorito:', e)
   } finally {
@@ -168,13 +170,3 @@ onMounted(() => {
   reloadFavorites()
 })
 </script>
-
-<style>
-.favorites-scroll-container {
-  max-height: 500px;
-  min-height: 200px;
-  overflow-y: auto;
-  background-color: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-</style>

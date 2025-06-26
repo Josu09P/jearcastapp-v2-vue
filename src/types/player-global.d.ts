@@ -7,11 +7,27 @@ declare module '@/utils/player-favorites' {
   }): void
 }
 
-declare module'@/utils/player-home' {
+declare module '@/utils/player-home' {
   export function initHomePlayer(options: {
     containerId: string
     videos: { videoId:string; title:string; thumbnail:string}[]
     startIndex?: number
   }
   ):void
+
+declare module '@/utils/player-recommended' {
+  export function initRecomendedPlayer(options: {
+    containerId:string
+    videos: { videoId: string; title:string; thumbnail: string;}[]
+    startIndex?: number
+  }):void
+ }
+
+ declare module '@/utils/player-playlist' {
+  export function initPlayListPlayer(options: {
+    containerId:string
+    videos: { videoId: string; title:string; thumbnail: string;}[]
+    startIndex?: number
+  }):void
+ }
 }

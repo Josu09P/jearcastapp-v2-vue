@@ -76,17 +76,13 @@ const logout = async () => {
     icon: 'question',
     showCancelButton: true,
     confirmButtonText: 'Sí',
-    cancelButtonText: 'Cancelar',
-    confirmButtonColor: '#e63946',
-    cancelButtonColor: '#6c757d',
-    background: '#f8f9fa',
-    color: '#212529',
-    padding: '2em',
+    cancelButtonText: 'No',
     customClass: {
-      popup: 'rounded-4 shadow-lg',
-      title: 'fw-bold fs-4',
-      confirmButton: 'btn btn-danger px-4 py-2 me-2',
-      cancelButton: 'btn btn-secondary px-4 py-2'
+      popup: 'glass-modal',
+      title: 'text-white',
+      htmlContainer: 'text-white',
+      confirmButton: 'btn btn-danger me-2',
+      cancelButton: 'btn btn-secondary'
     },
     buttonsStyling: false
   })

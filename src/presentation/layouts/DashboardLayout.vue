@@ -9,7 +9,6 @@
         <main class="container-fluid">
           <slot />
         </main>
-        <FooterDashboardWidget />
       </div>
     </div>
   </div>
@@ -17,8 +16,7 @@
 
 <script setup lang="ts">
 import HeaderTopWidget from '@/presentation/widgets/HeaderTopWidget.vue';
-import HeaderLeftWidget from '@/presentation/widgets/HeaderLeftWidget.vue';
-import FooterDashboardWidget from '@/presentation/widgets/FooterDashboardWidget.vue';
+import HeaderLeftWidget from '@/presentation/widgets/HeaderLeftWidget.vue'
 </script>
 
 <style>
