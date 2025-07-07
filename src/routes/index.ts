@@ -1,46 +1,48 @@
 // routes.ts
+import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-router'
 import { useUserStore } from '@/stores/user'
-import { createWebHistory, createRouter } from 'vue-router'
 
-
-const routes = [
+const routes: RouteRecordRaw[] = [
   {
     path: '/',
     redirect: '/welcome'
   },
   {
     path: '/welcome',
+    name: 'Welcome',
     component: () => import('@/presentation/pages/home/WelcomePage.vue')
   },
   {
     path: '/auth',
+    // ✅ Si quieres un layout base para auth (opcional)
+    // component: () => import('@/presentation/layouts/AuthLayout.vue'),
     children: [
       {
         path: 'register',
+        name: 'Register',
         component: () => import('@/presentation/pages/auth/RegisterPage.vue')
       },
       {
         path: 'login',
+        name: 'Login',
         component: () => import('@/presentation/pages/auth/LoginPage.vue')
       }
     ]
   },
   {
     path: '/dashboard',
+    name: 'Dashboard',
     component: () => import('@/presentation/pages/dashboard/DashboardPage.vue')
   }
 ]
 
 export const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(), // 🔁 hash-based routing para Electron
   routes
 })
 
-/* 
- - Protección de rutas privadas
- - Bloquear acceso a /auth/login si el usuario ya está logueado
-*/
- router.beforeEach((to, _from, next) => {
+// 🔐 Protección de rutas privadas
+router.beforeEach((to, _from, next) => {
   const store = useUserStore()
   const isLoggedIn = !!store.id
 
@@ -54,4 +56,3 @@ export const router = createRouter({
 
   next()
 })
-

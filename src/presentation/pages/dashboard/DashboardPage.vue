@@ -19,7 +19,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, provide } from 'vue'
+
 import DashboardLayout from '@/presentation/layouts/DashboardLayout.vue'
 import ThemesView from '@/presentation/widgets/views/ThemesView.vue'
 import FavoritesView from '@/presentation/widgets/views/FavoritesView.vue'
@@ -29,17 +30,10 @@ import PlayListView from '@/presentation/widgets/views/PlayListView.vue'
 
 const activeSection = ref('home')
 
-const validSections = ['home', 'favorites', 'play-list', 'recommended', 'themes']
-
-const handleHashChange = () => {
-  const hash = window.location.hash.replace('#', '')
-  if (validSections.includes(hash)) {
-    activeSection.value = hash
-  }
+const changeSection = (section: string) => {
+  activeSection.value = section
 }
 
-onMounted(() => {
-  handleHashChange()
-  window.addEventListener('hashchange', handleHashChange)
-})
+provide('activeSection', activeSection)
+provide('changeSection', changeSection)
 </script>

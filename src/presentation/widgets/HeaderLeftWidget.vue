@@ -11,46 +11,44 @@
     >
       <span class="fs-5 fw-bold" style="margin-left: -20px">Steel Music</span>
     </a>
+
     <ul class="nav nav-pills flex-column w-100 mb-5" style="margin-top: -15px;">
-      <li class="nav-item">
-        <a href="#home" class="nav-link nav-section">
-          <i class="bi bi-house-door me-2"></i> Inicio
+      <li class="nav-item" v-for="item in menuItems" :key="item.id">
+        <a
+          href="#"
+          class="nav-link nav-section"
+          :class="{ active: activeSection === item.id }"
+          @click.prevent="changeSection(item.id)"
+        >
+          <i :class="item.icon + ' me-2'"></i> {{ item.label }}
         </a>
       </li>
-      <li>
-        <a href="#favorites" class="nav-link nav-section">
-          <i class="bi bi-heart me-2"></i> Favoritos
-        </a>
-      </li>
-      <li>
-        <a href="#play-list" class="nav-link nav-section">
-          <i class="bi bi-music-note-list me-2"></i> Play List
-        </a>
-      </li>
-      <li>
-        <a href="#recommended" class="nav-link nav-section">
-          <i class="bi bi-stars me-2"></i> Recomendados
-        </a>
-      </li>
-      <li style="display: none">
-        <a href="#music-local" class="nav-link nav-section">
-          <i class="bi bi-collection-play-fill me-2"></i> Musica Local
-        </a>
-      </li>
-      <li>
-        <a href="#themes" class="nav-link nav-section">
-          <i class="bi bi-palette me-2"></i> Colores
-        </a>
-      </li>
+
       <li style="display: none">
         <a href="/dashboard/demo">demo</a>
       </li>
     </ul>
-     <footer class="mt-auto text-center text-light w-100 py-2">
+
+    <footer class="mt-auto text-center text-light w-100 py-2">
       © 2025 JearCastApp
     </footer>
   </div>
 </template>
+
+<script setup lang="ts">
+import { inject, type Ref } from 'vue'
+
+const activeSection = inject('activeSection') as Ref<string>
+const changeSection = inject('changeSection') as (section: string) => void
+
+const menuItems = [
+  { id: 'home', label: 'Inicio', icon: 'bi bi-house-door' },
+  { id: 'favorites', label: 'Favoritos', icon: 'bi bi-heart' },
+  { id: 'play-list', label: 'Play List', icon: 'bi bi-music-note-list' },
+  { id: 'recommended', label: 'Recomendados', icon: 'bi bi-stars' },
+  { id: 'themes', label: 'Colores', icon: 'bi bi-palette' }
+]
+</script>
 
 <style scoped>
 .nav-link.active {
@@ -58,7 +56,6 @@
   border-left: 3px solid #ffffff;
   color: #fff !important;
 }
-
 #navbar-left-color {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -67,7 +64,6 @@
   color: rgb(229, 229, 229) !important;
   font-size: 14px;
 }
-
 li {
   background-color: #b6b6b650;
   backdrop-filter: blur(6px);
@@ -76,12 +72,10 @@ li {
   border-radius: 6px;
   margin-bottom: 10px;
 }
-
 li:hover {
   background-color: #c9c9c9ca;
   border-radius: 6px;
 }
-
 footer {
   background-color: #8a8a8a50;
   backdrop-filter: blur(6px);
