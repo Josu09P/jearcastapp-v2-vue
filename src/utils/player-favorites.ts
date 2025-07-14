@@ -1,6 +1,8 @@
 // src/utils/player-favorites.ts
 import Lottie from 'lottie-web'
 import animationData from '@/assets/anim/animation-sound2.json'
+import { checkIframeLoadedOrOpenExternally } from './youtubeFallback'
+
 
 // Tipos auxiliares
 interface VideoItem {
@@ -96,8 +98,9 @@ function renderPlayer(video: VideoItem, index: number, containerId: string) {
       </div>
     </div>
   `
-
+  checkIframeLoadedOrOpenExternally(video.videoId, 'youtube-player-favorites')
   setTimeout(waitForYT, 100)
+
 }
 
 function waitForYT() {

@@ -15,6 +15,28 @@
   --main-bg-color: #102c4a;
 }
 
+/* Oculta la scrollbar en Chrome, Safari y Opera */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/* Oculta scrollbar en Firefox */
+body {
+    scrollbar-width: none;
+}
+
+/* Oculta scrollbar en IE y Edge */
+body {
+    -ms-overflow-style: none;
+}
+
+/* Mantiene el scroll pero sin barra visible */
+body {
+    overflow-y: scroll;
+}
+
+
 /* ======================================
              ESTRUCTURA GENERAL 
 ====================================== */

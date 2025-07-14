@@ -20,7 +20,6 @@
 
 <script setup lang="ts">
 import { ref, provide } from 'vue'
-
 import DashboardLayout from '@/presentation/layouts/DashboardLayout.vue'
 import ThemesView from '@/presentation/widgets/views/ThemesView.vue'
 import FavoritesView from '@/presentation/widgets/views/FavoritesView.vue'

@@ -1,43 +1,25 @@
 <template>
-  <div
-    class="d-flex align-items-center justify-content-center"
-    style="min-height: 100vh; background-image: url(/src/assets/img/bg-hero.png); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #102c4a;"
-  >
+  <div class="d-flex align-items-center justify-content-center auth-login">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5">
           <div class="card shadow-sm text-white">
             <div class="card-body">
               <h2 class="card-title text-center mb-4">
-                <img
-                  src="@/assets/img/logo-v3.png"
-                  alt="Logo"
-                  width="80"
-                  style="filter: brightness(0) invert(1); margin-bottom: 10px;"
-                />
+                <img src="@/assets/img/logo-v3.png" alt="Logo" width="80"
+                  style="filter: brightness(0) invert(1); margin-bottom: 10px;" />
                 <br />
                 Iniciar sesión
               </h2>
               <form @submit.prevent="handleLogin">
                 <div class="mb-3">
                   <label for="email" class="form-label">Correo electrónico</label>
-                  <input
-                    v-model="form.email"
-                    type="email"
-                    class="form-control"
-                    placeholder="Tu correo"
-                    required
-                  />
+                  <input v-model="form.email" type="email" class="form-control" placeholder="Tu correo" required />
                 </div>
                 <div class="mb-3">
                   <label for="password" class="form-label">Contraseña</label>
-                  <input
-                    v-model="form.password"
-                    type="password"
-                    class="form-control"
-                    placeholder="Tu contraseña"
-                    required
-                  />
+                  <input v-model="form.password" type="password" class="form-control" placeholder="Tu contraseña"
+                    required />
                 </div>
                 <div class="d-grid gap-2">
                   <button :disabled="loading" class="btn btn-primary" type="submit">
@@ -66,7 +48,7 @@ import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import Toastify from 'toastify-js'
 import { loginUser } from '@/domain/usecases/auth/LoginUser'
-import { useUserStore } from '@/stores/user' // ✅ Importa el store
+import { useUserStore } from '@/stores/user'
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -91,7 +73,7 @@ const handleLogin = async () => {
       text: `¡Bienvenido ${user.name || 'null'}!`,
       duration: 3000,
       gravity: 'top',
-      position:'right',
+      position: 'right',
       style: { background: 'linear-gradient(to right, #00b09b, #96c93d)' }
     }).showToast()
 
@@ -115,6 +97,15 @@ const handleLogin = async () => {
 </script>
 
 <style scoped>
+.auth-login {
+  min-height: 100vh;
+  background-image: url("@/assets/img/bg-hero.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #102c4a;
+}
+
 .card {
   padding: 20px;
   background-color: #5c616544;
